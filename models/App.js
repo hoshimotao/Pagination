@@ -1,0 +1,10 @@
+const express = require('express')
+const mongoose = require('mongoose')
+
+const appsSchema =  new mongoose.Schema({
+  name: 
+  { type: String, required: true }
+
+})
+
+module.exports = mongoose.model('App', appsSchema)
