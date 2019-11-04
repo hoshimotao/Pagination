@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const data = require("./apps.json")
+require('dotenv').config();
 
 app.get('/apps', (req, res, next) =>{
   
@@ -38,4 +39,7 @@ app.get('/apps', (req, res, next) =>{
 
 })
 
-app.listen(3000)
+// app.listen(3000)
+
+
+module.exports = app;
