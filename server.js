@@ -4,14 +4,14 @@ const data = require("./apps.json")
 require('dotenv').config();
 const http = require('http');
 
-app.get('/apps', (req, res, next) =>{
+app.get('/', (req, res, next) =>{
   
     console.log(data.apps)  
     console.log("hi")
 
     const results = data
-    const page = Number(req.query.page) || 1
-    const max = Number(req.query.max) || 15
+    const page = Number(req.query.page) || 1 // ?page=<number>
+    const max = Number(req.query.max) || 15 // &max=<number>
     const startIndex = (page - 1) * max
     const endIndex = page * max   
 
@@ -37,8 +37,6 @@ app.get('/apps', (req, res, next) =>{
     }
 
   res.json(newResult) 
-
-  
 
 })
 
