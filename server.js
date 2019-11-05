@@ -37,9 +37,10 @@ app.get('/apps', (req, res, next) =>{
 
   res.json(newResult) 
 
+  
+
 })
 
 app.listen(3000)
 
 
-module.exports = app;
