@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const data = require("./apps.json")
 require('dotenv').config();
+const http = require('http');
 
 app.get('/apps', (req, res, next) =>{
   
@@ -10,7 +11,7 @@ app.get('/apps', (req, res, next) =>{
 
     const results = data
     const page = Number(req.query.page) || 1
-    const max = Number(req.query.max) || 50
+    const max = Number(req.query.max) || 15
     const startIndex = (page - 1) * max
     const endIndex = page * max   
 
@@ -41,6 +42,9 @@ app.get('/apps', (req, res, next) =>{
 
 })
 
-app.listen(3000)
+const server = http.createServer(app);
+const port = process.env.PORT || 3000;
+app.listen(port);
+console.debug('Server listening on port ' + port);
 
 
