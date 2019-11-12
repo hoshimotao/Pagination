@@ -5,7 +5,7 @@ require("dotenv").config();
 
 // "/apps" must be added to URL manually to display data
 app.get("/apps", (req, res, next) => {
-  var results = data.apps;
+  let results = data.apps;
   console.log(results, "RESULTS");
   const page = Number(req.query.page) || 1; // ?page=<number> or 1 if not specified
   const max = Number(req.query.max) || 15; // &max=<number> or 15 if not specified
@@ -35,7 +35,7 @@ app.get("/apps", (req, res, next) => {
 
   // iterate through objects in the array up to the max
   for (let i = 0; i < max; i++) {
-    
+
   //push each indexed object into newResult (array of objects)
     newResult.push(results[startIndex + i]);
   }
